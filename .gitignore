@@ -1,0 +1,13 @@
+# Logs
+*.log
+
+# Grunt intermediate storage
+.grunt
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+app/bower_components
