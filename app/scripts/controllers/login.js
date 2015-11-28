@@ -2,9 +2,14 @@
 
   'use strict';
 
-  var LoginCtrl = function($scope, Auth, AUTH_EVENTS) {
+  var LoginCtrl = function($scope, Auth, User, AUTH_EVENTS) {
 
       $scope.user = {};
+
+      User.me()
+        .then(function(){
+          $scope.$emit(AUTH_EVENTS.loginSuccess);
+        });
 
       $scope.login = function() {
 
@@ -20,6 +25,6 @@
   };
 
   angular.module('messageboard1')
-     .controller('LoginCtrl', ['$scope', 'Auth', 'AUTH_EVENTS', LoginCtrl]);
+     .controller('LoginCtrl', ['$scope', 'Auth', 'User', 'AUTH_EVENTS', LoginCtrl]);
 
 })();

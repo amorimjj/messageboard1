@@ -8,8 +8,7 @@ describe('Messages Controller Test', function() {
 
   beforeEach(module('messageboard1'));
 
-
-  describe('Messages Controller Test', function() {
+  describe('Messages Service interaction test', function() {
 
     var scope, Messages;
 
@@ -30,21 +29,28 @@ describe('Messages Controller Test', function() {
       expect(scope.messages.length).toBe(3);
     }));
 
-    /*it('should send new messages to service', inject(function($controller) {
+    it('should send new messages to service', inject(function($controller) {
+      spyOn(Messages, 'post').and.callThrough();
       $controller('MessagesCtrl', {$scope:scope, Messages: Messages });
-      spyOn(Messages, 'post');
+      scope.message = { text: 'testing' };
       scope.post();
-      expect(Messages.post).toHaveBeenCalled();
-    }));*/
-  });
-  /*var friends = element.all(by.repeater('friend in friends'));
-
-  it('Shouldnt fail', function() {
-    expect(1).toBe(0);
+      expect(Messages.post).toHaveBeenCalledWith(scope.message);
+    }));
   });
 
-  it('Should pass', function() {
-    expect(1).toBe(1);
-  });*/
+  describe('Messages Socket interaction test', function() {
+
+    var SocketMessages = {
+      socket: {
+        on: function() {}
+      }
+    }
+
+    it('should create a listener to new message', inject(function($controller) {
+      spyOn(SocketMessages.socket, 'on');
+      $controller('MessagesCtrl', {$scope: {}, Messages: { list: function() { } }, SocketMessages: SocketMessages});
+      expect(SocketMessages.socket.on).toHaveBeenCalledWith('message', jasmine.any(Function));
+    }));
+  });
 
 });

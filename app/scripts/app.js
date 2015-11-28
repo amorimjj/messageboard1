@@ -46,12 +46,7 @@
     $locationProvider.html5Mode(true);
   };
 
-  var runner = function($rootScope, $location, $window, User, SocketMessages, AUTH_EVENTS) {
-
-    User.me()
-      .then(function(){
-        $location.path('/messages');
-      });
+  var runner = function($rootScope, $location, $window, SocketMessages, AUTH_EVENTS) {
 
     var deleteSession = function() {
       if ($window.sessionStorage.token)
@@ -73,6 +68,6 @@
   angular
     .module('messageboard1')
     .config(['$routeProvider', '$httpProvider', '$locationProvider', appConfig])
-    .run(['$rootScope', '$location', '$window', 'User', 'SocketMessages', 'AUTH_EVENTS', runner]);
+    .run(['$rootScope', '$location', '$window', 'SocketMessages', 'AUTH_EVENTS', runner]);
 
 })();
