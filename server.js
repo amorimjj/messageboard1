@@ -1,6 +1,8 @@
 'use strict';
 
-const express = require('express'),
+const
+  environment = process.env.NODE_ENV || 'development',
+  express = require('express'),
   app = express(),
   server = require('http').createServer(app),
   io = require('socket.io').listen(server),
@@ -9,19 +11,21 @@ const express = require('express'),
   userRoute = require('./api/routes/user'),
   messagesRoute = require('./api/routes/messages');
 
+let appRoot = environment === 'production' ? 'dist' : 'app';
+
 app.use(bodyParser.json());
-app.use(express.static('app'));
+app.use(express.static(appRoot));
 app.use('/api', authentication.secure());
 userRoute(app, authentication);
 messagesRoute(app, io);
 
 app.get('*', function(request, response, next) {
-  response.sendFile(__dirname + '/app/index.html');
+  response.sendFile(__dirname + '/' + appRoot + '/index.html');
 });
 
 io.set('authorization', authentication.socketSecure());
 
-server.listen(3000, function () {
+server.listen(process.env.PORT|| 8080, function () {
   var host = server.address().address;
   var port = server.address().port;
 
