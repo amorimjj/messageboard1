@@ -9,7 +9,7 @@
       me: function() {
         return resource.get().$promise;
       }
-    }
+    };
   };
 
   angular.module('messageboard1')

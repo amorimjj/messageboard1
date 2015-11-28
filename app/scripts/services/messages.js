@@ -13,7 +13,7 @@
       post: function(msg) {
         return resource.save(msg).$promise;
       }
-    }
+    };
   };
 
   angular.module('messageboard1')

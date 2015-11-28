@@ -7,10 +7,10 @@
     $scope.user = {};
 
     $scope.login = function() {
-      console.log('sign up...'); 
+      console.log('sign up...');
     };
 
-  }
+  };
 
   angular.module('messageboard1')
      .controller('SignUpCtrl', ['$scope', SignUpCtrl]);

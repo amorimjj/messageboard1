@@ -29,6 +29,11 @@
         "node": "0.10.x"
   },
   "devDependencies": {
-    "grunt-exec": "~0.4.6"
+    "grunt-exec": "~0.4.6",
+    "grunt-contrib-jshint": "*",
+    "grunt-karma": "*",
+    "karma": "*",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "*"
   }
 }

@@ -51,6 +51,26 @@ module.exports = function(grunt) {
       dist: {
         src: ["build"]
       }
+    },
+    jshint: {
+      all: ['Gruntfile.js', 'app/scripts/**/*.js', 'test/**/*.js']
+    },
+    karma: {
+      unit: {
+        options: {
+          frameworks: ['jasmine'],
+          singleRun: true,
+          browsers: ['PhantomJS'],
+          files: [
+            'app/bower_components/angular/angular.js',
+            'app/bower_components/angular-mocks/angular-mocks.js',
+            'app/scripts/bootstrap.js',
+            'app/scripts/app.js',
+            'app/scripts/**/*.js',
+            'tests/**/*.js'
+          ]
+        }
+      }
     }
   });
 
@@ -60,8 +80,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
   grunt.registerTask('build', ['clean:build','concat:build', 'uglify', 'concat', 'copy', 'processhtml', 'clean:dist']);
+  grunt.registerTask('test', ['jshint','karma']);
 
 };

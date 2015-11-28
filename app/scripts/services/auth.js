@@ -16,7 +16,7 @@
             $window.sessionStorage.token = resp.token;
           });
       }
-    }
+    };
   };
 
   angular.module('messageboard1')

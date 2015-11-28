@@ -22,7 +22,7 @@
         $scope.$emit(AUTH_EVENTS.logout);
       };
 
-  }
+  };
 
   angular.module('messageboard1')
      .controller('MessagesCtrl', ['$scope', 'Messages', 'SocketMessages', 'AUTH_EVENTS', MessagesCtrl]);

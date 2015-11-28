@@ -17,7 +17,7 @@
           });
       };
 
-  }
+  };
 
   angular.module('messageboard1')
      .controller('LoginCtrl', ['$scope', 'Auth', 'AUTH_EVENTS', LoginCtrl]);

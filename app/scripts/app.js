@@ -44,7 +44,7 @@
       });
 
     $locationProvider.html5Mode(true);
-  }
+  };
 
   var runner = function($rootScope, $location, $window, User, AUTH_EVENTS) {
 
@@ -58,7 +58,7 @@
         delete $window.sessionStorage.token;
 
       $location.path('/login');
-    }
+    };
 
     $rootScope.$on(AUTH_EVENTS.loginSuccess, function() {
         $location.path('/messages');
@@ -67,11 +67,11 @@
     $rootScope.$on(AUTH_EVENTS.notAuthorized, deleteSession);
     $rootScope.$on(AUTH_EVENTS.logout, deleteSession);
 
-  }
+  };
 
   angular
     .module('messageboard1')
     .config(['$routeProvider', '$httpProvider', '$locationProvider', appConfig])
-    .run(['$rootScope', '$location', '$window', 'User', 'AUTH_EVENTS', runner]);;
+    .run(['$rootScope', '$location', '$window', 'User', 'AUTH_EVENTS', runner]);
 
 })();
