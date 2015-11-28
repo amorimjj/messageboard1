@@ -18,17 +18,17 @@
     "socket.io":  "^1.3.7",
     "bower": "*",
     "grunt": "~0.4.1",
-    "grunt-cli": "*"
-  },
-  "engines": {
-        "node": "0.10.x"
-  },
-  "devDependencies": {
-    "grunt-exec": "~0.4.6",
+    "grunt-cli": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
     "grunt-processhtml": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*"
+  },
+  "engines": {
+        "node": "0.10.x"
+  },
+  "devDependencies": {
+    "grunt-exec": "~0.4.6"
   }
 }
