@@ -17,7 +17,7 @@
         if (response.status === 401)
           $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
 
-        return response || $q.when(response);
+        return $q.reject(response);
       }
     };
   };
@@ -46,7 +46,7 @@
     $locationProvider.html5Mode(true);
   };
 
-  var runner = function($rootScope, $location, $window, User, AUTH_EVENTS) {
+  var runner = function($rootScope, $location, $window, User, SocketMessages, AUTH_EVENTS) {
 
     User.me()
       .then(function(){
@@ -57,6 +57,7 @@
       if ($window.sessionStorage.token)
         delete $window.sessionStorage.token;
 
+      SocketMessages.close();
       $location.path('/login');
     };
 
@@ -72,6 +73,6 @@
   angular
     .module('messageboard1')
     .config(['$routeProvider', '$httpProvider', '$locationProvider', appConfig])
-    .run(['$rootScope', '$location', '$window', 'User', 'AUTH_EVENTS', runner]);
+    .run(['$rootScope', '$location', '$window', 'User', 'SocketMessages', 'AUTH_EVENTS', runner]);
 
 })();

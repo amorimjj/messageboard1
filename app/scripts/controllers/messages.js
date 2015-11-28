@@ -7,7 +7,7 @@
       $scope.message = {};
       $scope.messages = Messages.list();
 
-      SocketMessages.on('message', function (message) {
+      SocketMessages.socket.on('message', function (message) {
         $scope.messages.push(message);
       });
 

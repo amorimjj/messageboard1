@@ -1,20 +1,28 @@
 'use strict';
 
+const getMessages= require('./../lib/queries/get-messages'),
+  createMessage= require('./../lib/commands/create-message');
+
 let messages = function(app, io) {
 
   let list = [];
 
   app.get('/api/messages', function(req, res){
-    res.json(list);
+    getMessages
+      .execute()
+      .then(function(messages) {
+        res.json(messages);
+      });
   });
 
   app.post('/api/messages', function(req, res) {
 
-    let msg = { title: req.body.title, text: req.body.text, user: { id: req.user.id, name: req.user.name } };
-    list.push(msg);
-    io.emit('message', msg);
-    res.status(201).json({ message: 'created'});
-
+    createMessage
+      .execute(req.body.text, req.user)
+      .then(function(message){
+        io.emit('message', message);
+        res.status(201).json({ message: 'created'});
+      });
   });
 
 };

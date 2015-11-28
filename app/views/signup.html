@@ -1,5 +1,5 @@
 <form name="form" ng-submit="create()">
-  <input name="name" ng-model="user.name" type="email" placeholder="Name" required>
+  <input name="name" ng-model="user.name" type="text" placeholder="Name" required>
   <input name="wmail" ng-model="user.email" type="email" placeholder="Email" required>
   <input name="password" ng-model="user.password" type="password" placeholder="Password" required>
   <button ng-disabled="!form.$valid" type="submit">Create</button>

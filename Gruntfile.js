@@ -62,8 +62,12 @@ module.exports = function(grunt) {
           singleRun: true,
           browsers: ['PhantomJS'],
           files: [
+            'app/bower_components/socket.io-client/socket.io.js',
             'app/bower_components/angular/angular.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
+            'app/bower_components/angular-route/angular-route.min.js',
+            'app/bower_components/angular-resource/angular-resource.min.js',
+            'app/bower_components/angular-socket-io/socket.min.js',
             'app/scripts/bootstrap.js',
             'app/scripts/app.js',
             'app/scripts/**/*.js',

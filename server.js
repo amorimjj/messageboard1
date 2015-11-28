@@ -15,7 +15,7 @@ let appRoot = environment === 'production' ? 'dist' : 'app';
 
 app.use(bodyParser.json());
 app.use(express.static(appRoot));
-app.use('/api', authentication.secure());
+app.use(['/api/user/me', '/api/messages*'], authentication.secure());
 userRoute(app, authentication);
 messagesRoute(app, io);
 

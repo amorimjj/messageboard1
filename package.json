@@ -16,6 +16,8 @@
     "jsonwebtoken": "^3.2.2",
     "socketio-jwt": "^4.3.3",
     "socket.io":  "^1.3.7",
+    "q": "^1.0.1",
+    "crypto": "*",
     "bower": "*",
     "grunt": "~0.4.1",
     "grunt-cli": "*",

@@ -1,23 +1,42 @@
 'use strict';
 
+const getUserByEmail= require('./../lib/queries/get-user-by-email'),
+  createUser= require('./../lib/commands/create-user');
+
 let user = function(app, authentication) {
 
   app.post('/authenticate', function (req, res) {
 
-    if ( req.body.email !== req.body.password ) {
+    let sendInvalidCredentials = function() {
       console.log('bad', req.body.email, req.body.password)
       return res.status(403).json({ message: 'invalid credentials'});
-    }
+    };
 
-    let user = { id: 1, email: 'amorimjj@gmail.com'};
-    var token = authentication.sign(user);
+    getUserByEmail
+      .execute(req.body.email)
+      .then(function(u){
 
-    res.json({ message: 'sucess', token: token});
+        if ( ! u.isValidPassword(req.body.password) )
+          return sendInvalidCredentials();
+
+        let token = authentication.sign({ id: u.id });
+        res.json({ message: 'sucess', token: token});
+      }, sendInvalidCredentials);
 
   });
 
   app.get('/api/user/me', function(req, res){
     res.json(req.user);
+  });
+
+  app.post('/api/user/', function(req, res){
+    createUser
+      .execute(req.body)
+      .then(function(u){
+        res.status(201).json({ message: 'created'});
+      }, function(err){
+        return res.status(400).json(err);
+      });
   });
 
 };

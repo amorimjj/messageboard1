@@ -2,24 +2,30 @@
 
 const expressJwt = require('express-jwt'),
   jwt = require('jsonwebtoken'),
-  socketioJwt = require('socketio-jwt');
-//var User = require('./../domain/user');
+  socketioJwt = require('socketio-jwt'),
+  getUserById = require('./../lib/queries/get-user-by-id');
 
 const secret = '907a55f20429ab905de38e68428aa45c7d30c0b0';
 
-var fetchUser = function(req,res,next)
-{
-    //User.findById(req.user.id, function(err, user) {
-        if ( ! req.user )
-            return res.status(401).send('No authorized user found');
+var fetchUser = function(req,res,next) {
 
-        req.user = { id: req.user.id, email: req.user.email, name: 'Jota'};
+    let sendUserNotFound = function () {
+      res.status(401).send('No authorized user found');
+    };
+
+    if ( ! req.user)
+      return sendUserNotFound();
+
+    getUserById
+      .execute(req.user.id)
+      .then(function(user){
+        req.user = user;
         next();
-    //});
+      }, sendUserNotFound );
 };
 
-exports.secure = function()
-{
+exports.secure = function() {
+
     var middleware = expressJwt({secret: secret});
 
     return function (req, res, next)
@@ -30,8 +36,7 @@ exports.secure = function()
     };
 };
 
-exports.sign = function(user)
-{
+exports.sign = function(user) {
     return jwt.sign(user, secret, { expiresInMinutes: 60*5 });
 };
 

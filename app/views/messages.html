@@ -1,5 +1,4 @@
 <form name="form" ng-submit="post()">
-  <input name="title" ng-model="message.title" type="text" placeholder="Title" required>
   <input name="text" ng-model="message.text" type="text" placeholder="Text" required>
   <button ng-disabled="!form.$valid" type="submit">Create</button>
 </form>
