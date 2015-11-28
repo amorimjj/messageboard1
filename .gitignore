@@ -10,4 +10,8 @@ node_modules
 # Optional npm cache directory
 .npm
 
+#Bower components
 app/bower_components
+
+#Dist folder
+dist

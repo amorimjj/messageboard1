@@ -4,7 +4,8 @@
   "description": "Message Board 1",
   "main": "server.js",
   "scripts": {
-    "start": "node --harmony ./server.js"
+    "start": "node --harmony ./server.js",
+    "postinstall": "bower install && grunt build"
   },
   "author": "Jeferson Amorim amorimjj@gmail.com",
   "license": "MIT",
@@ -22,6 +23,10 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-exec": "~0.4.6",
-    "grunt-contrib-uglify": "*"
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-processhtml": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*"
   }
 }
