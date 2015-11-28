@@ -8,7 +8,7 @@
       scope: {
         message: '='
       },
-      template: 'User: {{message.user.email}} Text: {{message.text}}'
+      template: 'User: {{message.user.name}} Text: {{message.text}}'
     };
   };
 
