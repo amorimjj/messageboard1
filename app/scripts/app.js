@@ -62,6 +62,7 @@
 
     $rootScope.$on(AUTH_EVENTS.notAuthorized, deleteSession);
     $rootScope.$on(AUTH_EVENTS.logout, deleteSession);
+    $rootScope.$on(AUTH_EVENTS.accountCreated. deleteSession);
 
   };
 

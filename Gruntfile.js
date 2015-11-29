@@ -19,6 +19,7 @@ module.exports = function(grunt) {
           'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-route/angular-route.min.js',
           'app/bower_components/angular-resource/angular-resource.min.js',
+          'app/bower_components/angular-animate/angular-animate.min.js',
           'app/bower_components/angular-socket-io/socket.min.js',
           'build/<%= pkg.name %>.dist.min.js'],
         dest: 'dist/scripts/<%= pkg.name %>.min.js'

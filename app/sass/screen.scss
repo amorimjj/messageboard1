@@ -6,6 +6,9 @@
 @import "compass/reset";
 @import "compass/css3";
 
+@mixin font-size($sizeValue: 1, $multiplier: 1) {
+  font-size: ($sizeValue * $multiplier) + em;
+}
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .clr {clear:both;}
@@ -13,8 +16,15 @@
 $bg: #2f2f2f;
 $text: lighten($bg,35%);
 
+$valid: #78FA89;
+$inValid: #FA787E;
+
 $break-small: 500px;
 $break-medium: 800px;
+
+$font-size: 2;
+$font-size-small: 1;
+$font-size-medium: 1.5;
 
 .roundedborder {
   @include border-radius (.2em);
@@ -25,6 +35,8 @@ body {
   background: $bg;
   color:$text;
   font-family:Century Gothic;
+  position:relative;
+  overflow:hidden;
 }
 
 form {
@@ -34,7 +46,57 @@ form {
   padding:2em;
   width:70%;
   max-width: 700px;
+
+  div.actions {
+    width: 100%;
+    text-align: right;
+
+    @media screen and (max-width: $break-small) {
+      padding-bottom: ($font-size-small)+em;
+    }
+
+  }
+
+  div.message {
+
+    width: 100%;
+    height: ($font-size*0.6)+em;
+    padding-bottom:($font-size)+em;
+
+    @media screen and (max-width: $break-medium) {
+      height: ($font-size-medium*0.6)+em;
+      padding-bottom:($font-size-medium)+em;
+    }
+
+    @media screen and (max-width: $break-small) {
+      height: ($font-size-small*0.6)+em;
+      padding-bottom:($font-size-small)+em;
+    }
+
+    p {
+      color: $inValid;
+      visibility: visible;
+      @include opacity(1);
+      @include font-size($font-size, 0.6);
+      text-align: center;
+      @include transition(visibility 0s, opacity 0.5s linear);
+
+      @media screen and (max-width: $break-medium) {
+        @include font-size($font-size-medium, 0.6);
+      }
+
+      @media screen and (max-width: $break-small) {
+        @include font-size($font-size-small, 0.6);
+      }
+
+      &.ng-hide {
+        visibility: hidden;
+        @include opacity(0);
+      }
+    }
+  }
 }
+
 
 input {outline:none;}
 label {
@@ -60,19 +122,32 @@ input[type='email'], input[type='text'], input[type='password'], :-webkit-autofi
   @extend .roundedborder;
   background-color: darken($bg, 5%);
   color: lighten($text, 10%);
-  font-size:2em;
+  @include font-size($font-size);
   margin:.2em 0 1em;
   padding: .25em;
   width:100%;
 
-  @media screen and (max-width: $break-small) {
-    font-size:0.5em;
+  @media screen and (max-width: $break-medium) {
+    @include font-size($font-size-medium);
   }
 
-  @media screen and (max-width: $break-medium) {
-    font-size:1em;
+  @media screen and (max-width: $break-small) {
+    @include font-size($font-size-small);
   }
 }
+
+input.ng-touched {
+  @include transition(0.5s linear all);
+}
+
+input.ng-invalid.ng-touched {
+  background-color: lighten($inValid, 10%);
+  border-color: $inValid;
+}
+
+input.ng-valid.ng-touched {
+    background-color: darken($bg, 5%);
+ }
 
 ::-webkit-input-placeholder {color: lighten($bg, 10%);}
 :-moz-placeholder {color: lighten($bg, 10%);} /* FF 18 */
@@ -122,4 +197,32 @@ input[type='submit']:hover {background-color:darken($bg,5%);}
   right:0;
   top:0;
   padding:10px;
+}
+
+.container {
+
+  &.ng-enter, &.ng-leave {
+    @include transition(0.75s ease-in-out);
+    display:block;
+    width:100%;
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+
+  &.ng-enter {
+    left:100%;
+
+    &.ng-enter-active {
+      left:0;
+    }
+  }
+
+  &.ng-leave.ng-leave-active {
+    left:-100%;
+  }
+  
 }

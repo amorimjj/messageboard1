@@ -1,4 +1,7 @@
 <form name="form" ng-submit="create()">
+  <div class="actions">
+    <a ng-href="login">Login</a>
+  </div>
   <div>
     <label for="name">Name:</label>
     <input name="name" ng-model="user.name" type="text" placeholder="Name" required>
@@ -11,8 +14,10 @@
     <label for="password">Password:</label>
     <input name="password" ng-model="user.password" type="password" placeholder="Password" required>
   </div>
-  <div>
-    <a ng-href="login">Login</a>
+  <div class="message">
+    <p ng-show="errorMessage">
+      {{errorMessage}}
+    </p>
   </div>
   <div>
     <input type="submit" ng-disabled="!form.$valid" value="Sign up">

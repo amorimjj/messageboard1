@@ -8,7 +8,6 @@ let user = function(app, authentication) {
   app.post('/authenticate', function (req, res) {
 
     let sendInvalidCredentials = function() {
-      console.log('bad', req.body.email, req.body.password)
       return res.status(403).json({ message: 'invalid credentials'});
     };
 

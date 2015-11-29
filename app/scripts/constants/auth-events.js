@@ -6,6 +6,7 @@
     notAuthorized: 1,
     logout: 2,
     loginSuccess: 4,
+    accountCreated: 6
   };
 
 

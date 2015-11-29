@@ -4,6 +4,6 @@
     'use strict';
 
     angular
-        .module('messageboard1', ['ngRoute', 'ngResource', 'btford.socket-io']);
+        .module('messageboard1', ['ngRoute', 'ngResource', 'ngAnimate', 'btford.socket-io']);
 
 })();

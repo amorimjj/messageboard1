@@ -7,12 +7,19 @@
     $scope.user = {};
 
     $scope.create = function() {
+
+      $scope.errorMessage = '';
+
       User.add($scope.user).then(
         function() {
-          $scope.$emit(AUTH_EVENTS.loginSuccess);
+          $scope.$emit(AUTH_EVENTS.accountCreated);
         },
         function(err){
-          console.log('bad', err);
+
+          if ( err.status === 400 )
+            return $scope.errorMessage = 'Email already in use';
+
+          $scope.errorMessage = 'Try again in a few minutes';
         });
     };
 

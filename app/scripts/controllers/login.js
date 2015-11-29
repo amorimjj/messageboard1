@@ -11,14 +11,20 @@
           $scope.$emit(AUTH_EVENTS.loginSuccess);
         });
 
-      $scope.login = function() {
+      $scope.login = function(form) {
+
+        $scope.errorMessage = '';
 
         Auth.login($scope.user.email, $scope.user.password).then(
           function() {
             $scope.$emit(AUTH_EVENTS.loginSuccess);
           },
           function(err){
-            console.log('bad', err);
+
+            if ( err.status === 403 )
+              return $scope.errorMessage = 'Wrong email or password';
+
+             $scope.errorMessage = 'Try again in a few minutes';
           });
       };
 
