@@ -8,8 +8,10 @@ module.exports = function(grunt) {
         separator: grunt.util.linefeed + ';' + grunt.util.linefeed
       },
       build: {
-        src: ['app/scripts/bootstrap.js', 'app/scripts/app.js', 'app/scripts/**/*.js'],
-        dest: 'build/<%= pkg.name %>.js'
+        files: {
+          'build/<%= pkg.name %>.js' : ['app/scripts/bootstrap.js', 'app/scripts/app.js', 'app/scripts/**/*.js'],
+          'dist/stylesheets/<%= pkg.name %>.dist.css' : ['app/stylesheets/screen.css', 'app/stylesheets/print.css']
+        }
       },
       dist: {
         src: [
@@ -25,7 +27,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'build/<%= pkg.name %>.dist.min.js': ['<%= concat.build.dest %>']
+          'build/<%= pkg.name %>.dist.min.js': ['build/<%= pkg.name %>.js']
         }
       }
     },
@@ -33,7 +35,7 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: 'app/',
-        src: ['views/*', 'stylesheets/*'],
+        src: ['views/*', 'stylesheets/ie.css'],
         dest: 'dist/',
       }
     },
