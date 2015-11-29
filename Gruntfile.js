@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: 'app/',
-        src: ['views/*'],
+        src: ['views/*', 'stylesheets/*'],
         dest: 'dist/',
       }
     },
