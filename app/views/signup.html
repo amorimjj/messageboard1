@@ -20,7 +20,7 @@
     </p>
   </div>
   <div>
-    <input type="submit" ng-disabled="!form.$valid" value="Sign up">
+    <input type="submit"  ng-disabled="!form.$valid||submitting" value="{{submitting ? 'Creating' : 'Sign up' }}">
     <div class="clr"></div>
   </div>
 </form>

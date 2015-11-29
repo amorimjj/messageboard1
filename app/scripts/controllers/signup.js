@@ -8,13 +8,14 @@
 
     $scope.create = function() {
 
-      $scope.errorMessage = '';
+      $scope.errorMessage = '', $scope.submitting = true;
 
       User.add($scope.user).then(
         function() {
           $scope.$emit(AUTH_EVENTS.accountCreated);
         },
         function(err){
+          $scope.submitting = false;
 
           if ( err.status === 400 )
             return $scope.errorMessage = 'Email already in use';

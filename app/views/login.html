@@ -16,7 +16,7 @@
     </p>
   </div>
   <div>
-    <input type="submit" ng-disabled="!form.$valid" value="Login">
+    <input type="submit" ng-disabled="!form.$valid||submitting" value="{{submitting ? 'Checking' : 'Login' }}">
     <div class="clr"></div>
   </div>
 </form>
