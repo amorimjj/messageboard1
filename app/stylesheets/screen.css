@@ -295,38 +295,43 @@ form.post ul li div.message-box div.text span {
     font-size: 0.5em;
   }
 }
-/* line 208, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
+form.post ul li div.message-box div.text span.by {
+  font-style: italic;
+  color: white;
+}
+/* line 213, ../sass/screen.scss */
 form div.actions {
   width: 100%;
   text-align: right;
 }
 @media screen and (max-width: 500px) {
-  /* line 208, ../sass/screen.scss */
+  /* line 213, ../sass/screen.scss */
   form div.actions {
     padding-bottom: 1em;
   }
 }
-/* line 218, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 form div.message {
   width: 100%;
   height: 1.2em;
   padding-bottom: 2em;
 }
 @media screen and (max-width: 800px) {
-  /* line 218, ../sass/screen.scss */
+  /* line 223, ../sass/screen.scss */
   form div.message {
     height: 0.9em;
     padding-bottom: 1.5em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 218, ../sass/screen.scss */
+  /* line 223, ../sass/screen.scss */
   form div.message {
     height: 0.6em;
     padding-bottom: 1em;
   }
 }
-/* line 234, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 form div.message p {
   color: #FA787E;
   visibility: visible;
@@ -340,30 +345,30 @@ form div.message p {
   transition: visibility 0s, opacity 0.5s linear;
 }
 @media screen and (max-width: 800px) {
-  /* line 234, ../sass/screen.scss */
+  /* line 239, ../sass/screen.scss */
   form div.message p {
     font-size: 0.9em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 234, ../sass/screen.scss */
+  /* line 239, ../sass/screen.scss */
   form div.message p {
     font-size: 0.6em;
   }
 }
-/* line 250, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 form div.message p.ng-hide {
   visibility: hidden;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 258, ../sass/screen.scss */
+/* line 263, ../sass/screen.scss */
 label {
   padding: 0 0.5em 0 0.5em;
 }
 
-/* line 264, ../sass/screen.scss */
+/* line 269, ../sass/screen.scss */
 .container.ng-enter, .container.ng-leave {
   -moz-transition: ease-in-out 0.75s;
   -o-transition: ease-in-out 0.75s;
@@ -377,53 +382,53 @@ label {
   right: 0;
   bottom: 0;
 }
-/* line 276, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .container.ng-enter {
   left: 100%;
 }
-/* line 279, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .container.ng-enter.ng-enter-active {
   left: 0;
 }
-/* line 284, ../sass/screen.scss */
+/* line 289, ../sass/screen.scss */
 .container.ng-leave.ng-leave-active {
   left: -100%;
 }
 
-/* line 289, ../sass/screen.scss */
+/* line 294, ../sass/screen.scss */
 a {
   text-decoration: none;
   color: #888888;
   font-weight: bold;
   cursor: pointer;
 }
-/* line 295, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 300, ../sass/screen.scss */
+/* line 305, ../sass/screen.scss */
 input, textarea {
   outline: none;
 }
 
-/* line 306, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 input.ng-touched {
   -moz-transition: linear 0.5s all;
   -o-transition: linear 0.5s all;
   -webkit-transition: linear 0.5s all;
   transition: linear 0.5s all;
 }
-/* line 310, ../sass/screen.scss */
+/* line 315, ../sass/screen.scss */
 input.ng-invalid.ng-touched {
   background-color: #fca9ad;
   border-color: #FA787E;
 }
-/* line 315, ../sass/screen.scss */
+/* line 320, ../sass/screen.scss */
 input.ng-valid.ng-touched {
   background-color: #222222;
 }
-/* line 319, ../sass/screen.scss */
+/* line 324, ../sass/screen.scss */
 input[type='submit'], input[type="submit"]:disabled:hover {
   border: 3px solid #161616;
   background-color: #3c3c3c;
@@ -435,23 +440,23 @@ input[type='submit'], input[type="submit"]:disabled:hover {
   text-shadow: 0.1em 0.1em 0.2em #333;
 }
 @media screen and (max-width: 800px) {
-  /* line 319, ../sass/screen.scss */
+  /* line 324, ../sass/screen.scss */
   input[type='submit'], input[type="submit"]:disabled:hover {
     font-size: 1.125em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 319, ../sass/screen.scss */
+  /* line 324, ../sass/screen.scss */
   input[type='submit'], input[type="submit"]:disabled:hover {
     font-size: 0.75em;
   }
 }
-/* line 338, ../sass/screen.scss */
+/* line 343, ../sass/screen.scss */
 input[type='submit']:hover {
   background-color: #222222;
 }
 
-/* line 343, ../sass/screen.scss */
+/* line 348, ../sass/screen.scss */
 textarea {
   background-color: #222222;
   color: #a2a2a2;
@@ -463,19 +468,19 @@ textarea {
   font-size: 1.2em;
 }
 @media screen and (max-width: 800px) {
-  /* line 343, ../sass/screen.scss */
+  /* line 348, ../sass/screen.scss */
   textarea {
     font-size: 1.125em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 343, ../sass/screen.scss */
+  /* line 348, ../sass/screen.scss */
   textarea {
     font-size: 0.75em;
   }
 }
 
-/* line 363, ../sass/screen.scss */
+/* line 368, ../sass/screen.scss */
 input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
   background-color: #222222;
   color: #a2a2a2;
@@ -485,65 +490,65 @@ input[type='email'], input[type='text'], input[type='password'], :-webkit-autofi
   width: 100%;
 }
 @media screen and (max-width: 800px) {
-  /* line 363, ../sass/screen.scss */
+  /* line 368, ../sass/screen.scss */
   input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
     font-size: 1.5em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 363, ../sass/screen.scss */
+  /* line 368, ../sass/screen.scss */
   input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
     font-size: 1em;
   }
 }
 
-/* line 381, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
 ::-webkit-input-placeholder {
   color: #494949;
 }
 
-/* line 382, ../sass/screen.scss */
+/* line 387, ../sass/screen.scss */
 :-moz-placeholder {
   color: #494949;
 }
 
 /* FF 18 */
-/* line 383, ../sass/screen.scss */
+/* line 388, ../sass/screen.scss */
 ::-moz-placeholder {
   color: #494949;
 }
 
 /* FF 19+ */
-/* line 384, ../sass/screen.scss */
+/* line 389, ../sass/screen.scss */
 :-ms-input-placeholder {
   color: #494949;
 }
 
-/* line 385, ../sass/screen.scss */
+/* line 390, ../sass/screen.scss */
 :-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #222222 inset;
   -webkit-text-fill-color: #a2a2a2 !important;
 }
 
-/* line 391, ../sass/screen.scss */
+/* line 396, ../sass/screen.scss */
 input[type=checkbox] {
   display: none;
 }
 
 @media screen and (max-width: 800px) {
-  /* line 395, ../sass/screen.scss */
+  /* line 400, ../sass/screen.scss */
   label[for="checkbox"] {
     font-size: 0.9em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 395, ../sass/screen.scss */
+  /* line 400, ../sass/screen.scss */
   label[for="checkbox"] {
     font-size: 0.8em;
   }
 }
 
-/* line 406, ../sass/screen.scss */
+/* line 411, ../sass/screen.scss */
 label[for="checkbox"]:before {
   content: "\2713";
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -552,19 +557,19 @@ label[for="checkbox"]:before {
   padding-right: 0.2em;
 }
 @media screen and (max-width: 800px) {
-  /* line 406, ../sass/screen.scss */
+  /* line 411, ../sass/screen.scss */
   label[for="checkbox"]:before {
     padding-right: 0.3em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 406, ../sass/screen.scss */
+  /* line 411, ../sass/screen.scss */
   label[for="checkbox"]:before {
     padding-right: 0.3em;
   }
 }
 
-/* line 422, ../sass/screen.scss */
+/* line 427, ../sass/screen.scss */
 input[type=checkbox]:checked + label:before {
   color: #c8c8c8;
 }

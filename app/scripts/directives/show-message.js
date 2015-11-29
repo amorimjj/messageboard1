@@ -17,7 +17,8 @@
           </div>\
           <div ng-click="collapsed=!collapsed" class="text"> \
             <p ng-class="{ closed: collapsed }">{{message.text}}</p> \
-            <span am-time-ago="message.date"></span> \
+            <span class="by">{{message.user.name}},</span> \
+            <span class="time" am-time-ago="message.date"></span> \
           </div>'
     };
   };

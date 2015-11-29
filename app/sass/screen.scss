@@ -198,6 +198,11 @@ form {
               @media screen and (max-width: $break-small) {
                 @include font-size($font-size-small, 0.5);
               }
+
+              &.by {
+                font-style: italic;
+                color: lighten($text,50%);
+              }
             }
           }
         }
