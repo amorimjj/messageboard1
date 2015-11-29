@@ -1,0 +1,125 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clr {clear:both;}
+
+$bg: #2f2f2f;
+$text: lighten($bg,35%);
+
+$break-small: 500px;
+$break-medium: 800px;
+
+.roundedborder {
+  @include border-radius (.2em);
+  border: 2px solid darken($bg, 10%);
+}
+
+body {
+  background: $bg;
+  color:$text;
+  font-family:Century Gothic;
+}
+
+form {
+  font-size:1.2em;
+  margin: 2em auto;
+  @extend .roundedborder;
+  padding:2em;
+  width:70%;
+  max-width: 700px;
+}
+
+input {outline:none;}
+label {
+  padding:0 .5em 0 .5em;
+
+  @media screen and (max-width: $break-small) {
+    display:none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color:$text;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill  {
+  @extend .roundedborder;
+  background-color: darken($bg, 5%);
+  color: lighten($text, 10%);
+  font-size:2em;
+  margin:.2em 0 1em;
+  padding: .25em;
+  width:100%;
+
+  @media screen and (max-width: $break-small) {
+    font-size:0.5em;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    font-size:1em;
+  }
+}
+
+::-webkit-input-placeholder {color: lighten($bg, 10%);}
+:-moz-placeholder {color: lighten($bg, 10%);} /* FF 18 */
+::-moz-placeholder {color: lighten($bg, 10%);} /* FF 19+ */
+:-ms-input-placeholder {color: lighten($bg, 10%);}
+:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px darken($bg, 5%) inset;
+    -webkit-text-fill-color: lighten($text, 10%) !important;
+}
+
+textarea {
+  @extend .roundedborder;
+  background-color: darken($bg, 5%);
+  color: lighten($text, 10%);
+  font-size:1em;
+  height:10em;
+  margin:.5em 0 1em;
+  padding:1em;
+  width:100%;
+}
+
+input[type='submit'], input[type="submit"]:disabled:hover {
+  @extend .roundedborder;
+  border: 3px solid darken($bg, 10%);
+  background-color:lighten($bg, 5%);
+  cursor:pointer;
+  color:lighten($bg,50%);
+  float:right;
+  font-size:1.5em;
+  padding: .25em 1em;
+  @include text-shadow(.1em .1em .2em #333);
+
+  @media screen and (max-width: $break-medium) {
+    font-size:1.25em;
+  }
+
+  @media screen and (max-width: $break-small) {
+    font-size:1em;
+  }
+
+}
+
+input[type='submit']:hover {background-color:darken($bg,5%);}
+
+.user-control {
+  position: fixed;
+  right:0;
+  top:0;
+  padding:10px;
+}

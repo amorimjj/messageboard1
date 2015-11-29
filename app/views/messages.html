@@ -1,8 +1,13 @@
+<div class="user-control">
+  <a ng-click="logout()">Logout</a>
+</div>
 <form name="form" ng-submit="post()">
-  <input name="text" ng-model="message.text" type="text" placeholder="Text" required>
-  <button ng-disabled="!form.$valid" type="submit">Create</button>
+  <textarea ng-model="message.text" placeholder="Type your message" ng-required="true"></textarea>
+  <div>
+    <input type="submit" ng-disabled="!form.$valid" value="Post it!">
+    <div class="clr"></div>
+  </div>
 </form>
-<a ng-click="logout()">Logout</a>
 <ul ng-repeat="message in messages">
   <li show-message message="message"></li>
 </ul>
