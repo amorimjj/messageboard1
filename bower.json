@@ -17,13 +17,15 @@
     "tests"
   ],
   "dependencies": {
+    "angular-moment":"*",
+    "angular-gravatar": "*",
     "angular-animate": "~1.4.8",
     "angular-resource": "~1.4.8",
     "angular-socket-io": "~0.7.0",
     "angular-route": "~1.4.8",
     "angular": "~1.4.8",
-    "bower": "*",
     "socket.io-client": "~1.3.7",
+    "bower": "*",
     "install": "~1.0.4",
     "angular-mocks": "*"
   }

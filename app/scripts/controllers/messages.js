@@ -6,6 +6,7 @@
 
       $scope.message = {};
       $scope.messages = Messages.list();
+      $scope.hide = false, $scope.filter = {};
 
       SocketMessages.socket.on('message', function (message) {
         $scope.messages.push(message);
@@ -16,6 +17,14 @@
         .then(function(){
           $scope.message = {};
         });
+      };
+
+      $scope.updateFilter = function() {
+
+          if ( $scope.hide )
+            return $scope.filter = { owner: false };
+
+          $scope.filter = {};
       };
 
       $scope.logout = function() {

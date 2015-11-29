@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "compass/typography/text/ellipsis";
 
 @mixin font-size($sizeValue: 1, $multiplier: 1) {
   font-size: ($sizeValue * $multiplier) + em;
@@ -39,13 +40,170 @@ body {
   overflow:hidden;
 }
 
+.user-control {
+  position: fixed;
+  right:0;
+  top:0;
+  padding:0.5em;
+}
+
 form {
   font-size:1.2em;
-  margin: 2em auto;
-  @extend .roundedborder;
-  padding:2em;
-  width:70%;
   max-width: 700px;
+
+  &.user {
+    margin: 2em auto;
+    @extend .roundedborder;
+    padding:2em;
+    width:70%;
+
+    label {
+        @media screen and (max-width: $break-small) {
+          display:none;
+        }
+    }
+  }
+
+  &.post {
+
+    margin: 1.5em auto;
+    width:100%;
+    padding-right: 2em;
+    padding-left: 2em;
+
+    @media screen and (max-width: $break-medium) {
+      padding-right: 1.5em;
+      padding-left: 1.5em;
+    }
+
+    @media screen and (max-width: $break-small) {
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+
+    ul {
+      margin-top: 1em;
+      height: 50vh;
+
+      &:hover {
+        overflow-x: auto;
+      }
+
+      &::-webkit-scrollbar {
+
+        width:0.2em;
+
+        @media screen and (max-width: $break-medium) {
+          width:0.15em;
+        }
+
+        @media screen and (max-width: $break-small) {
+          width:0.1em;
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background: darken($text, 20%);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: darken($text, 5%);
+      }
+
+      li {
+        padding: 1em;
+        cursor: pointer;
+
+        &.ng-enter, &.ng-leave {
+          @include transition(0.8s linear);
+        }
+
+        &.ng-enter {
+          @include opacity(0);
+        }
+
+        &.ng-leave-active {
+            @include opacity(0);
+        }
+
+        &.ng-enter-active {
+            @include opacity(1);
+        }
+
+        div.message-box {
+
+          @include display-flex;
+
+          div.image-cropper {
+              width: 60px;
+              height: 60px;
+              overflow: hidden;
+              border-radius: 50%;
+
+              @media screen and (max-width: $break-medium) {
+                width: 40px;
+                height: 40px;
+              }
+
+              @media screen and (max-width: $break-small) {
+                width: 25px;
+                height: 25px;
+              }
+
+              img {
+                  display: inline;
+                  margin: 0 auto;
+                  height: 100%;
+                  width: auto;
+              }
+          }
+
+          div.text {
+            width: 85%;
+            margin:0 0.5em;
+
+            p {
+
+              @include transition(all 0.5s linear);
+              padding-bottom: 0.3em;
+              color: lighten($text,20%);
+              visibility: visible;
+              @include opacity(1);
+
+              &.closed.ng-animate.closed-remove {
+                visibility: hidden;
+                @include opacity(0);
+              }
+
+              &.closed {
+                @include ellipsis;
+                padding-bottom: 0.1em;
+              }
+
+              @media screen and (max-width: $break-medium) {
+                @include font-size($font-size-medium, 0.6);
+              }
+
+              @media screen and (max-width: $break-small) {
+                @include font-size($font-size-small, 0.6);
+              }
+            }
+            span {
+              @include font-size($font-size, 0.4);
+
+              @media screen and (max-width: $break-medium) {
+                @include font-size($font-size-medium, 0.4);
+              }
+
+              @media screen and (max-width: $break-small) {
+                @include font-size($font-size-small, 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
   div.actions {
     width: 100%;
@@ -97,106 +255,8 @@ form {
   }
 }
 
-
-input {outline:none;}
 label {
-  padding:0 .5em 0 .5em;
-
-  @media screen and (max-width: $break-small) {
-    display:none;
-  }
-}
-
-a {
-  text-decoration: none;
-  color:$text;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill  {
-  @extend .roundedborder;
-  background-color: darken($bg, 5%);
-  color: lighten($text, 10%);
-  @include font-size($font-size);
-  margin:.2em 0 1em;
-  padding: .25em;
-  width:100%;
-
-  @media screen and (max-width: $break-medium) {
-    @include font-size($font-size-medium);
-  }
-
-  @media screen and (max-width: $break-small) {
-    @include font-size($font-size-small);
-  }
-}
-
-input.ng-touched {
-  @include transition(0.5s linear all);
-}
-
-input.ng-invalid.ng-touched {
-  background-color: lighten($inValid, 10%);
-  border-color: $inValid;
-}
-
-input.ng-valid.ng-touched {
-    background-color: darken($bg, 5%);
- }
-
-::-webkit-input-placeholder {color: lighten($bg, 10%);}
-:-moz-placeholder {color: lighten($bg, 10%);} /* FF 18 */
-::-moz-placeholder {color: lighten($bg, 10%);} /* FF 19+ */
-:-ms-input-placeholder {color: lighten($bg, 10%);}
-:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px darken($bg, 5%) inset;
-    -webkit-text-fill-color: lighten($text, 10%) !important;
-}
-
-textarea {
-  @extend .roundedborder;
-  background-color: darken($bg, 5%);
-  color: lighten($text, 10%);
-  font-size:1em;
-  height:10em;
-  margin:.5em 0 1em;
-  padding:1em;
-  width:100%;
-}
-
-input[type='submit'], input[type="submit"]:disabled:hover {
-  @extend .roundedborder;
-  border: 3px solid darken($bg, 10%);
-  background-color:lighten($bg, 5%);
-  cursor:pointer;
-  color:lighten($bg,50%);
-  float:right;
-  font-size:1.5em;
-  padding: .25em 1em;
-  @include text-shadow(.1em .1em .2em #333);
-
-  @media screen and (max-width: $break-medium) {
-    font-size:1.25em;
-  }
-
-  @media screen and (max-width: $break-small) {
-    font-size:1em;
-  }
-
-}
-
-input[type='submit']:hover {background-color:darken($bg,5%);}
-
-.user-control {
-  position: fixed;
-  right:0;
-  top:0;
-  padding:10px;
+  padding:0 .5em 0 .5em
 }
 
 .container {
@@ -224,5 +284,143 @@ input[type='submit']:hover {background-color:darken($bg,5%);}
   &.ng-leave.ng-leave-active {
     left:-100%;
   }
-  
+}
+
+a {
+  text-decoration: none;
+  color:$text;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input, textarea {
+  outline:none;
+}
+
+input {
+
+  &.ng-touched {
+    @include transition(0.5s linear all);
+  }
+
+  &.ng-invalid.ng-touched {
+    background-color: lighten($inValid, 10%);
+    border-color: $inValid;
+  }
+
+  &.ng-valid.ng-touched {
+      background-color: darken($bg, 5%);
+   }
+
+  &[type='submit'], &[type="submit"]:disabled:hover {
+     @extend .roundedborder;
+     border: 3px solid darken($bg, 10%);
+     background-color:lighten($bg, 5%);
+     cursor:pointer;
+     color:lighten($bg,50%);
+     float:right;
+     @include font-size($font-size, 0.75);
+     padding: .25em 1em;
+     @include text-shadow(.1em .1em .2em #333);
+
+     @media screen and (max-width: $break-medium) {
+       @include font-size($font-size-medium, 0.75);
+     }
+
+     @media screen and (max-width: $break-small) {
+       @include font-size($font-size-small, 0.75);
+     }
+   }
+   &[type='submit']:hover {
+     background-color:darken($bg,5%);
+   }
+}
+
+textarea {
+  @extend .roundedborder;
+  background-color: darken($bg, 5%);
+  color: lighten($text, 10%);
+  @include font-size($font-size);
+  height:7em;
+  margin:.5em 0 1em;
+  padding:1em;
+  width:100%;
+  @include font-size($font-size, 0.6);
+
+  @media screen and (max-width: $break-medium) {
+    @include font-size($font-size-medium, 0.75);
+  }
+
+  @media screen and (max-width: $break-small) {
+    @include font-size($font-size-small, 0.75);
+  }
+}
+
+input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill  {
+  @extend .roundedborder;
+  background-color: darken($bg, 5%);
+  color: lighten($text, 10%);
+  @include font-size($font-size);
+  margin:.2em 0 1em;
+  padding: .25em;
+  width:100%;
+
+  @media screen and (max-width: $break-medium) {
+    @include font-size($font-size-medium);
+  }
+
+  @media screen and (max-width: $break-small) {
+    @include font-size($font-size-small);
+  }
+}
+
+::-webkit-input-placeholder {color: lighten($bg, 10%);}
+:-moz-placeholder {color: lighten($bg, 10%);} /* FF 18 */
+::-moz-placeholder {color: lighten($bg, 10%);} /* FF 19+ */
+:-ms-input-placeholder {color: lighten($bg, 10%);}
+:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px darken($bg, 5%) inset;
+    -webkit-text-fill-color: lighten($text, 10%) !important;
+}
+
+
+input[type=checkbox] {
+    display: none;
+}
+
+label[for="checkbox"] {
+
+  @media screen and (max-width: $break-medium) {
+    @include font-size($font-size-medium, 0.6);
+  }
+
+  @media screen and (max-width: $break-small) {
+    @include font-size($font-size-small,0.8);
+  }
+}
+
+label[for="checkbox"]:before {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    color: lighten($bg, 15%);
+    text-align: center;
+    padding-right: ($font-size*0.1)+em;
+
+    @media screen and (max-width: $break-medium) {
+      padding-right: ($font-size-medium*0.2)+em;
+    }
+
+    @media screen and (max-width: $break-small) {
+      padding-right: ($font-size-small*0.3)+em;
+    }
+
+
+}
+
+input[type=checkbox]:checked + label:before {
+    color: lighten($bg, 60%);
 }

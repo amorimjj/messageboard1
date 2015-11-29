@@ -19,7 +19,7 @@ let user = function(app, authentication) {
           return sendInvalidCredentials();
 
         let token = authentication.sign({ id: u.id });
-        res.json({ message: 'sucess', token: token});
+        res.json({ message: 'sucess', token: token, id: u.id});
       }, sendInvalidCredentials);
 
   });

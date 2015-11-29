@@ -67,27 +67,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 13, ../sass/screen.scss */
+/* line 14, ../sass/screen.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 .clr {
   clear: both;
 }
 
-/* line 29, ../sass/screen.scss */
-.roundedborder, form, input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill, textarea, input[type='submit'], input[type="submit"]:disabled:hover {
+/* line 30, ../sass/screen.scss */
+.roundedborder, form.user, input[type='submit'], input[type="submit"]:disabled:hover, textarea, input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
   -moz-border-radius: 0.2em;
   -webkit-border-radius: 0.2em;
   border-radius: 0.2em;
   border: 2px solid #161616;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 body {
   background: #2f2f2f;
   color: #888888;
@@ -96,46 +96,237 @@ body {
   overflow: hidden;
 }
 
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
+.user-control {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 0.5em;
+}
+
+/* line 50, ../sass/screen.scss */
 form {
   font-size: 1.2em;
+  max-width: 700px;
+}
+/* line 54, ../sass/screen.scss */
+form.user {
   margin: 2em auto;
   padding: 2em;
   width: 70%;
-  max-width: 700px;
 }
-/* line 50, ../sass/screen.scss */
+@media screen and (max-width: 500px) {
+  /* line 60, ../sass/screen.scss */
+  form.user label {
+    display: none;
+  }
+}
+/* line 67, ../sass/screen.scss */
+form.post {
+  margin: 1.5em auto;
+  width: 100%;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+@media screen and (max-width: 800px) {
+  /* line 67, ../sass/screen.scss */
+  form.post {
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 67, ../sass/screen.scss */
+  form.post {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+  }
+}
+/* line 84, ../sass/screen.scss */
+form.post ul {
+  margin-top: 1em;
+  height: 50vh;
+}
+/* line 88, ../sass/screen.scss */
+form.post ul:hover {
+  overflow-x: auto;
+}
+/* line 92, ../sass/screen.scss */
+form.post ul::-webkit-scrollbar {
+  width: 0.2em;
+}
+@media screen and (max-width: 800px) {
+  /* line 92, ../sass/screen.scss */
+  form.post ul::-webkit-scrollbar {
+    width: 0.15em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 92, ../sass/screen.scss */
+  form.post ul::-webkit-scrollbar {
+    width: 0.1em;
+  }
+}
+/* line 105, ../sass/screen.scss */
+form.post ul::-webkit-scrollbar-track {
+  background: #555555;
+}
+/* line 109, ../sass/screen.scss */
+form.post ul::-webkit-scrollbar-thumb {
+  background: #7c7c7c;
+}
+/* line 113, ../sass/screen.scss */
+form.post ul li {
+  padding: 1em;
+  cursor: pointer;
+}
+/* line 117, ../sass/screen.scss */
+form.post ul li.ng-enter, form.post ul li.ng-leave {
+  -moz-transition: linear 0.8s;
+  -o-transition: linear 0.8s;
+  -webkit-transition: linear 0.8s;
+  transition: linear 0.8s;
+}
+/* line 121, ../sass/screen.scss */
+form.post ul li.ng-enter {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 125, ../sass/screen.scss */
+form.post ul li.ng-leave-active {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 129, ../sass/screen.scss */
+form.post ul li.ng-enter-active {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+/* line 133, ../sass/screen.scss */
+form.post ul li div.message-box {
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 137, ../sass/screen.scss */
+form.post ul li div.message-box div.image-cropper {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+@media screen and (max-width: 800px) {
+  /* line 137, ../sass/screen.scss */
+  form.post ul li div.message-box div.image-cropper {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 137, ../sass/screen.scss */
+  form.post ul li div.message-box div.image-cropper {
+    width: 25px;
+    height: 25px;
+  }
+}
+/* line 153, ../sass/screen.scss */
+form.post ul li div.message-box div.image-cropper img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+/* line 161, ../sass/screen.scss */
+form.post ul li div.message-box div.text {
+  width: 85%;
+  margin: 0 0.5em;
+}
+/* line 165, ../sass/screen.scss */
+form.post ul li div.message-box div.text p {
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  padding-bottom: 0.3em;
+  color: #bbbbbb;
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+/* line 173, ../sass/screen.scss */
+form.post ul li div.message-box div.text p.closed.ng-animate.closed-remove {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 178, ../sass/screen.scss */
+form.post ul li div.message-box div.text p.closed {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding-bottom: 0.1em;
+}
+@media screen and (max-width: 800px) {
+  /* line 165, ../sass/screen.scss */
+  form.post ul li div.message-box div.text p {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 165, ../sass/screen.scss */
+  form.post ul li div.message-box div.text p {
+    font-size: 0.6em;
+  }
+}
+/* line 191, ../sass/screen.scss */
+form.post ul li div.message-box div.text span {
+  font-size: 0.8em;
+}
+@media screen and (max-width: 800px) {
+  /* line 191, ../sass/screen.scss */
+  form.post ul li div.message-box div.text span {
+    font-size: 0.6em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 191, ../sass/screen.scss */
+  form.post ul li div.message-box div.text span {
+    font-size: 0.5em;
+  }
+}
+/* line 208, ../sass/screen.scss */
 form div.actions {
   width: 100%;
   text-align: right;
 }
 @media screen and (max-width: 500px) {
-  /* line 50, ../sass/screen.scss */
+  /* line 208, ../sass/screen.scss */
   form div.actions {
     padding-bottom: 1em;
   }
 }
-/* line 60, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 form div.message {
   width: 100%;
   height: 1.2em;
   padding-bottom: 2em;
 }
 @media screen and (max-width: 800px) {
-  /* line 60, ../sass/screen.scss */
+  /* line 218, ../sass/screen.scss */
   form div.message {
     height: 0.9em;
     padding-bottom: 1.5em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 60, ../sass/screen.scss */
+  /* line 218, ../sass/screen.scss */
   form div.message {
     height: 0.6em;
     padding-bottom: 1em;
   }
 }
-/* line 76, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 form div.message p {
   color: #FA787E;
   visibility: visible;
@@ -149,171 +340,30 @@ form div.message p {
   transition: visibility 0s, opacity 0.5s linear;
 }
 @media screen and (max-width: 800px) {
-  /* line 76, ../sass/screen.scss */
+  /* line 234, ../sass/screen.scss */
   form div.message p {
     font-size: 0.9em;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 76, ../sass/screen.scss */
+  /* line 234, ../sass/screen.scss */
   form div.message p {
     font-size: 0.6em;
   }
 }
-/* line 92, ../sass/screen.scss */
+/* line 250, ../sass/screen.scss */
 form div.message p.ng-hide {
   visibility: hidden;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 101, ../sass/screen.scss */
-input {
-  outline: none;
-}
-
-/* line 102, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 label {
-  padding: 0 .5em 0 .5em;
-}
-@media screen and (max-width: 500px) {
-  /* line 102, ../sass/screen.scss */
-  label {
-    display: none;
-  }
+  padding: 0 0.5em 0 0.5em;
 }
 
-/* line 110, ../sass/screen.scss */
-a {
-  text-decoration: none;
-  color: #888888;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* line 117, ../sass/screen.scss */
-a:hover {
-  text-decoration: underline;
-}
-
-/* line 121, ../sass/screen.scss */
-input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
-  background-color: #222222;
-  color: #a2a2a2;
-  font-size: 2em;
-  margin: .2em 0 1em;
-  padding: .25em;
-  width: 100%;
-}
-@media screen and (max-width: 800px) {
-  /* line 121, ../sass/screen.scss */
-  input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 500px) {
-  /* line 121, ../sass/screen.scss */
-  input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
-    font-size: 1em;
-  }
-}
-
-/* line 139, ../sass/screen.scss */
-input.ng-touched {
-  -moz-transition: linear 0.5s all;
-  -o-transition: linear 0.5s all;
-  -webkit-transition: linear 0.5s all;
-  transition: linear 0.5s all;
-}
-
-/* line 143, ../sass/screen.scss */
-input.ng-invalid.ng-touched {
-  background-color: #fca9ad;
-  border-color: #FA787E;
-}
-
-/* line 148, ../sass/screen.scss */
-input.ng-valid.ng-touched {
-  background-color: #222222;
-}
-
-/* line 152, ../sass/screen.scss */
-::-webkit-input-placeholder {
-  color: #494949;
-}
-
-/* line 153, ../sass/screen.scss */
-:-moz-placeholder {
-  color: #494949;
-}
-
-/* FF 18 */
-/* line 154, ../sass/screen.scss */
-::-moz-placeholder {
-  color: #494949;
-}
-
-/* FF 19+ */
-/* line 155, ../sass/screen.scss */
-:-ms-input-placeholder {
-  color: #494949;
-}
-
-/* line 156, ../sass/screen.scss */
-:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #222222 inset;
-  -webkit-text-fill-color: #a2a2a2 !important;
-}
-
-/* line 161, ../sass/screen.scss */
-textarea {
-  background-color: #222222;
-  color: #a2a2a2;
-  font-size: 1em;
-  height: 10em;
-  margin: .5em 0 1em;
-  padding: 1em;
-  width: 100%;
-}
-
-/* line 172, ../sass/screen.scss */
-input[type='submit'], input[type="submit"]:disabled:hover {
-  border: 3px solid #161616;
-  background-color: #3c3c3c;
-  cursor: pointer;
-  color: #afafaf;
-  float: right;
-  font-size: 1.5em;
-  padding: .25em 1em;
-  text-shadow: 0.1em 0.1em 0.2em #333;
-}
-@media screen and (max-width: 800px) {
-  /* line 172, ../sass/screen.scss */
-  input[type='submit'], input[type="submit"]:disabled:hover {
-    font-size: 1.25em;
-  }
-}
-@media screen and (max-width: 500px) {
-  /* line 172, ../sass/screen.scss */
-  input[type='submit'], input[type="submit"]:disabled:hover {
-    font-size: 1em;
-  }
-}
-
-/* line 193, ../sass/screen.scss */
-input[type='submit']:hover {
-  background-color: #222222;
-}
-
-/* line 195, ../sass/screen.scss */
-.user-control {
-  position: fixed;
-  right: 0;
-  top: 0;
-  padding: 10px;
-}
-
-/* line 204, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 .container.ng-enter, .container.ng-leave {
   -moz-transition: ease-in-out 0.75s;
   -o-transition: ease-in-out 0.75s;
@@ -327,15 +377,194 @@ input[type='submit']:hover {
   right: 0;
   bottom: 0;
 }
-/* line 216, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 .container.ng-enter {
   left: 100%;
 }
-/* line 219, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 .container.ng-enter.ng-enter-active {
   left: 0;
 }
-/* line 224, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .container.ng-leave.ng-leave-active {
   left: -100%;
+}
+
+/* line 289, ../sass/screen.scss */
+a {
+  text-decoration: none;
+  color: #888888;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 295, ../sass/screen.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 300, ../sass/screen.scss */
+input, textarea {
+  outline: none;
+}
+
+/* line 306, ../sass/screen.scss */
+input.ng-touched {
+  -moz-transition: linear 0.5s all;
+  -o-transition: linear 0.5s all;
+  -webkit-transition: linear 0.5s all;
+  transition: linear 0.5s all;
+}
+/* line 310, ../sass/screen.scss */
+input.ng-invalid.ng-touched {
+  background-color: #fca9ad;
+  border-color: #FA787E;
+}
+/* line 315, ../sass/screen.scss */
+input.ng-valid.ng-touched {
+  background-color: #222222;
+}
+/* line 319, ../sass/screen.scss */
+input[type='submit'], input[type="submit"]:disabled:hover {
+  border: 3px solid #161616;
+  background-color: #3c3c3c;
+  cursor: pointer;
+  color: #afafaf;
+  float: right;
+  font-size: 1.5em;
+  padding: .25em 1em;
+  text-shadow: 0.1em 0.1em 0.2em #333;
+}
+@media screen and (max-width: 800px) {
+  /* line 319, ../sass/screen.scss */
+  input[type='submit'], input[type="submit"]:disabled:hover {
+    font-size: 1.125em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 319, ../sass/screen.scss */
+  input[type='submit'], input[type="submit"]:disabled:hover {
+    font-size: 0.75em;
+  }
+}
+/* line 338, ../sass/screen.scss */
+input[type='submit']:hover {
+  background-color: #222222;
+}
+
+/* line 343, ../sass/screen.scss */
+textarea {
+  background-color: #222222;
+  color: #a2a2a2;
+  font-size: 2em;
+  height: 7em;
+  margin: .5em 0 1em;
+  padding: 1em;
+  width: 100%;
+  font-size: 1.2em;
+}
+@media screen and (max-width: 800px) {
+  /* line 343, ../sass/screen.scss */
+  textarea {
+    font-size: 1.125em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 343, ../sass/screen.scss */
+  textarea {
+    font-size: 0.75em;
+  }
+}
+
+/* line 363, ../sass/screen.scss */
+input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
+  background-color: #222222;
+  color: #a2a2a2;
+  font-size: 2em;
+  margin: .2em 0 1em;
+  padding: .25em;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  /* line 363, ../sass/screen.scss */
+  input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 363, ../sass/screen.scss */
+  input[type='email'], input[type='text'], input[type='password'], :-webkit-autofill {
+    font-size: 1em;
+  }
+}
+
+/* line 381, ../sass/screen.scss */
+::-webkit-input-placeholder {
+  color: #494949;
+}
+
+/* line 382, ../sass/screen.scss */
+:-moz-placeholder {
+  color: #494949;
+}
+
+/* FF 18 */
+/* line 383, ../sass/screen.scss */
+::-moz-placeholder {
+  color: #494949;
+}
+
+/* FF 19+ */
+/* line 384, ../sass/screen.scss */
+:-ms-input-placeholder {
+  color: #494949;
+}
+
+/* line 385, ../sass/screen.scss */
+:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #222222 inset;
+  -webkit-text-fill-color: #a2a2a2 !important;
+}
+
+/* line 391, ../sass/screen.scss */
+input[type=checkbox] {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 395, ../sass/screen.scss */
+  label[for="checkbox"] {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 395, ../sass/screen.scss */
+  label[for="checkbox"] {
+    font-size: 0.8em;
+  }
+}
+
+/* line 406, ../sass/screen.scss */
+label[for="checkbox"]:before {
+  content: "\2713";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  color: #555555;
+  text-align: center;
+  padding-right: 0.2em;
+}
+@media screen and (max-width: 800px) {
+  /* line 406, ../sass/screen.scss */
+  label[for="checkbox"]:before {
+    padding-right: 0.3em;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 406, ../sass/screen.scss */
+  label[for="checkbox"]:before {
+    padding-right: 0.3em;
+  }
+}
+
+/* line 424, ../sass/screen.scss */
+input[type=checkbox]:checked + label:before {
+  color: #c8c8c8;
 }

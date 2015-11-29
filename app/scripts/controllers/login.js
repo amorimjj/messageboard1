@@ -7,7 +7,7 @@
       $scope.user = {}, $scope.submitting = false;
 
       User.me()
-        .then(function(){
+        .then(function(resp){
           $scope.$emit(AUTH_EVENTS.loginSuccess);
         });
 

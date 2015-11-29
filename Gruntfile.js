@@ -16,11 +16,14 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'app/bower_components/socket.io-client/socket.io.js',
+          'app/bower_components/moment/moment.js',
           'app/bower_components/angular/angular.min.js',
           'app/bower_components/angular-route/angular-route.min.js',
           'app/bower_components/angular-resource/angular-resource.min.js',
           'app/bower_components/angular-animate/angular-animate.min.js',
+          'app/bower_components/angular-moment/angular-moment.min.js',
           'app/bower_components/angular-socket-io/socket.min.js',
+          'app/bower_components/angular-gravatar/build/angular-gravatar.js',
           'build/<%= pkg.name %>.dist.min.js'],
         dest: 'dist/scripts/<%= pkg.name %>.min.js'
       }

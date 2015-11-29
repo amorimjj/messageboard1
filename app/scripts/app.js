@@ -52,6 +52,9 @@
       if ($window.sessionStorage.token)
         delete $window.sessionStorage.token;
 
+      if ($window.sessionStorage.id)
+          delete $window.sessionStorage.id;
+
       SocketMessages.close();
       $location.path('/login');
     };

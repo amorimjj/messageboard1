@@ -1,18 +1,28 @@
 (function(){
   'use strict';
 
-  var ShowMessage = function () {
+  var ShowMessage = function ($window) {
 
     return {
       restrict: 'AE',
       scope: {
         message: '='
       },
-      template: 'User: {{message.user.name}} Text: {{message.text}}'
+      link: function (scope, element, window) {
+        scope.collapsed = true;
+        scope.message.owner = ($window.sessionStorage.id == scope.message.user.id);
+      },
+      template: '<div class="image-cropper"> \
+            <img gravatar-src="message.user.email" gravatar-size="100"> \
+          </div>\
+          <div ng-click="collapsed=!collapsed" class="text"> \
+            <p ng-class="{ closed: collapsed }">{{message.text}}</p> \
+            <span am-time-ago="message.date"></span> \
+          </div>'
     };
   };
 
   angular.module('messageboard1')
-     .directive('showMessage', ShowMessage);
+     .directive('showMessage', ['$window', ShowMessage]);
 
 })();

@@ -1,13 +1,19 @@
 <div class="user-control">
   <a ng-click="logout()">Logout</a>
 </div>
-<form name="form" ng-submit="post()">
-  <textarea ng-model="message.text" placeholder="Type your message" ng-required="true"></textarea>
+<form class="post" name="form" ng-submit="post()">
+  <textarea ng-model="message.text" placeholder="Type your message" maxlength="140" ng-required="true"></textarea>
   <div>
     <input type="submit" ng-disabled="!form.$valid" value="Post it!">
     <div class="clr"></div>
   </div>
+  <div class="checkbox">
+    <input type="checkbox" name="checkbox" id="checkbox" ng-model="hide" ng-click="updateFilter()" />
+    <label for="checkbox">hide my posts</label>
+  </div>
+  <ul>
+    <li ng-repeat="message in messages  | filter: filter | orderBy:'-date'">
+      <div class="message-box" show-message message="message"></div>
+    </li>
+  </ul>
 </form>
-<ul ng-repeat="message in messages">
-  <li show-message message="message"></li>
-</ul>

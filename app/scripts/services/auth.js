@@ -13,6 +13,7 @@
         return resource.login({email: email, password: password})
           .$promise
           .then(function(resp) {
+            $window.sessionStorage.id = resp.id;
             $window.sessionStorage.token = resp.token;
           });
       }
