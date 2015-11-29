@@ -417,8 +417,6 @@ label[for="checkbox"]:before {
     @media screen and (max-width: $break-small) {
       padding-right: ($font-size-small*0.3)+em;
     }
-
-
 }
 
 input[type=checkbox]:checked + label:before {

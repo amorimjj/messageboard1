@@ -564,7 +564,7 @@ label[for="checkbox"]:before {
   }
 }
 
-/* line 424, ../sass/screen.scss */
+/* line 422, ../sass/screen.scss */
 input[type=checkbox]:checked + label:before {
   color: #c8c8c8;
 }
