@@ -4,7 +4,8 @@
 
   var LoginCtrl = function($scope, Auth, User, AUTH_EVENTS) {
 
-      $scope.user = {}, $scope.submitting = false;
+      $scope.user = {};
+      $scope.submitting = false;
 
       User.me()
         .then(function(resp){
@@ -13,7 +14,8 @@
 
       $scope.login = function(form) {
 
-        $scope.errorMessage = '', $scope.submitting = true;
+        $scope.errorMessage = '';
+        $scope.submitting = true;
 
         Auth.login($scope.user.email, $scope.user.password).then(
           function() {
@@ -23,7 +25,7 @@
             $scope.submitting = false;
 
             if ( err.status === 403 )
-              return $scope.errorMessage = 'Wrong email or password';
+              return ($scope.errorMessage = 'Wrong email or password');
 
              $scope.errorMessage = 'Try again in a few minutes';
           });

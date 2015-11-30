@@ -8,7 +8,8 @@
 
     $scope.create = function() {
 
-      $scope.errorMessage = '', $scope.submitting = true;
+      $scope.errorMessage = '';
+      $scope.submitting = true;
 
       User.add($scope.user).then(
         function() {
@@ -18,7 +19,7 @@
           $scope.submitting = false;
 
           if ( err.status === 400 )
-            return $scope.errorMessage = 'Email already in use';
+            return ($scope.errorMessage = 'Email already in use');
 
           $scope.errorMessage = 'Try again in a few minutes';
         });

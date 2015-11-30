@@ -6,7 +6,8 @@
 
       $scope.message = {};
       $scope.messages = Messages.list();
-      $scope.hide = false, $scope.filter = {};
+      $scope.hide = false;
+      $scope.filter = {};
 
       SocketMessages.socket.on('message', function (message) {
         $scope.messages.push(message);
@@ -22,7 +23,7 @@
       $scope.updateFilter = function() {
 
           if ( $scope.hide )
-            return $scope.filter = { owner: false };
+            return ($scope.filter = { owner: false });
 
           $scope.filter = {};
       };
