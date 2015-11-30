@@ -164,7 +164,7 @@ form {
 
             p {
 
-              @include transition(all 0.5s linear);
+              @include transition(all 0.2s linear);
               padding-bottom: 0.3em;
               color: lighten($text,20%);
               visibility: visible;
@@ -242,7 +242,7 @@ form {
       @include opacity(1);
       @include font-size($font-size, 0.6);
       text-align: center;
-      @include transition(visibility 0s, opacity 0.5s linear);
+      @include transition(visibility 0s, opacity 0.2s linear);
 
       @media screen and (max-width: $break-medium) {
         @include font-size($font-size-medium, 0.6);
@@ -309,7 +309,7 @@ input, textarea {
 input {
 
   &.ng-touched {
-    @include transition(0.5s linear all);
+    @include transition(0.2s linear all);
   }
 
   &.ng-invalid.ng-touched {

@@ -242,10 +242,10 @@ form.post ul li div.message-box div.text {
 }
 /* line 165, ../sass/screen.scss */
 form.post ul li div.message-box div.text p {
-  -moz-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  -webkit-transition: all 0.5s linear;
-  transition: all 0.5s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
   padding-bottom: 0.3em;
   color: #bbbbbb;
   visibility: visible;
@@ -339,10 +339,10 @@ form div.message p {
   opacity: 1;
   font-size: 1.2em;
   text-align: center;
-  -moz-transition: visibility 0s, opacity 0.5s linear;
-  -o-transition: visibility 0s, opacity 0.5s linear;
-  -webkit-transition: visibility 0s, opacity 0.5s linear;
-  transition: visibility 0s, opacity 0.5s linear;
+  -moz-transition: visibility 0s, opacity 0.2s linear;
+  -o-transition: visibility 0s, opacity 0.2s linear;
+  -webkit-transition: visibility 0s, opacity 0.2s linear;
+  transition: visibility 0s, opacity 0.2s linear;
 }
 @media screen and (max-width: 800px) {
   /* line 239, ../sass/screen.scss */
@@ -414,10 +414,10 @@ input, textarea {
 
 /* line 311, ../sass/screen.scss */
 input.ng-touched {
-  -moz-transition: linear 0.5s all;
-  -o-transition: linear 0.5s all;
-  -webkit-transition: linear 0.5s all;
-  transition: linear 0.5s all;
+  -moz-transition: linear 0.2s all;
+  -o-transition: linear 0.2s all;
+  -webkit-transition: linear 0.2s all;
+  transition: linear 0.2s all;
 }
 /* line 315, ../sass/screen.scss */
 input.ng-invalid.ng-touched {
