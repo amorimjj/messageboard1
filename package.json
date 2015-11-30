@@ -1,7 +1,7 @@
 {
   "name": "messageboard1",
   "version": "1.0.0",
-  "description": "Message Board 1",
+  "description": "Message Board 1 https://messageboard1.herokuapp.com/",
   "main": "server.js",
   "scripts": {
     "start": "node --harmony ./server.js",
@@ -9,6 +9,10 @@
   },
   "author": "Jeferson Amorim amorimjj@gmail.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amorimjj/messageboard1"
+  },
   "dependencies": {
     "body-parser": "^1.5.0",
     "express": "^4.6.1",
